@@ -6,7 +6,7 @@ Sub ReplyAllWithAttachments()
     Set ts = fso.GetFile(Environ("appdata") & "\Microsoft\Signatures\nanicksig.htm").OpenAsTextStream(1, -2)
     Signature = ts.readall
     ts.Close
-    Set du = fso.GetFile("\\HP-PROD01\c$\.VIDSITE\commuter_map_data_uri_.txt").OpenAsTextStream(1, -2)
+    Set du = fso.GetFile(".\commuter_map_data_uri_.txt").OpenAsTextStream(1, -2)
     DataUri = du.readall
     du.Close
     Dim oReply As Outlook.MailItem
@@ -59,8 +59,8 @@ Function GetCurrentItem() As Object
 End Function
  
 Sub CopyAttachments(objTargetItem)
-   strPDF = "\\hp-prod01\c$\.VIDSITE\resume\Nicholas Stevens CV 2020 .pdf"
-   strDOCX = "\\hp-prod01\c$\.VIDSITE\resume\Nicholas Stevens CV 2020 .docx"
+   strPDF = ".\resume\Nicholas Stevens CV 2020 .pdf"
+   strDOCX = ".\resume\Nicholas Stevens CV 2020 .docx"
    objTargetItem.Attachments.Add strPDF
    objTargetItem.Attachments.Add strDOCX
 End Sub
